@@ -3,7 +3,7 @@ import Event from './Event';
 
 export default class EventManagerFactory{
     static create(events, types) {
-        // implement your code here...
-        return new EventManager();
+        const execEvents = Event.load(events, types)
+        return new EventManager(execEvents)
     }
 };

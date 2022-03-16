@@ -16,3 +16,34 @@ nos devuelve el código es el mismo valor en cada iteración.
     > 3
     > 4
 ```
+
+## Respuesta
+
+La método setTimeOut es una función que ejecuta el código después de un determinado
+tiempo. Por esta razón cuando se ejecuta el setTimeOut el `for` ya habrá hecho su 
+recorrido mostrando siempre el valor final de la operacion. Que es `5`
+
+Para poder controlar la ejecución y que el setTimeOut entre el ciclo del `for` se tendría 
+que utilizar un clousure alrededor de `i` de esta forma.
+```
+for (var i = 0; i < 5; i++) {
+    (function (i) {
+        setTimeout(() => {
+            console.log(i)
+        }, 1000);
+    })(i);
+}
+```
+Sin embargo esta solución no satisface la necesidad de imprimir el numero cada segundo para
+lo cual la solución mas sencilla yo creo que se debería utilizar el setInterval, usado de esta
+forma.
+
+```
+  let a = 0;
+  let interval = setInterval( x => {
+  if ( a != 5 ) {
+     console.log(a++)
+  } else {
+     clearInterval(interval)
+  }}, 1000)
+```

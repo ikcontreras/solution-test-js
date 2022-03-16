@@ -1,6 +1,9 @@
 export default class EventManager{
+    constructor(execEvents) {
+        this.execEvents = execEvents
+    }
     run() {
-        // implement your code here...
+        this.execEvents()
         console.log("RUNNING");
     }
 };
